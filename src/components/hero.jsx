@@ -1,9 +1,14 @@
 import React from "react";
 import assets from "../assets/assets";
+import { motion } from "motion/react";
 
 const Hero = () => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.7 }}
+      viewport={{ once: true }}
       id="hero"
       className="flex flex-col items-center gap-6 py-20 px-4 sm:px-12 lg:px-24 xl:px-40 text-center w-full overflow-hidden text-gray-700 dark:text-white"
     >
@@ -11,7 +16,11 @@ const Hero = () => {
         <img className="w-20" src={assets.group_profile} alt="" />
         <p className="text-xs font-medium">Trusted by 10K people</p>
       </div>
-      <h1
+      <motion.h1
+        initial={{ opacity: 0, y: 400 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        viewport={{ once: true }}
         className="text-4xl sm:text-5xl md:text-6xl xl:text-[84px] font-medium xl:leading-[95px]
       max-w-5xl"
       >
@@ -20,12 +29,24 @@ const Hero = () => {
           Digital
         </span>
         Impact
-      </h1>
-      <p className="text-sm sm:text-lg font-medium text-gray-500 dark:text-white/75 max-w-[80%] sm:max-w-lg pb-3">
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 1 }}
+        viewport={{ once: true }}
+        className="text-sm sm:text-lg font-medium text-gray-500 dark:text-white/75 max-w-[80%] sm:max-w-lg pb-3"
+      >
         Creating connctions and turning big ideas into interactive digital
         experiences
-      </p>
-      <div className="relative">
+      </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 0.9 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 1 }}
+        viewport={{ once: true }}
+        className="relative"
+      >
         <img src={assets.hero_img} alt="" className="w-full max-w-6xl" />
 
         <img
@@ -33,8 +54,8 @@ const Hero = () => {
           alt=""
           className="absolute -top-40 -right-40 sm:-top-40 sm:-right-70 -z-1 dark:hidden"
         />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
